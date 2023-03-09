@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
 
   def show
-    puts "show in OrdersController"
+   
     @order = Order.find(params[:id])
-    @line_item = LineItem.where(order_id: @order.id)
+   
   end
 
   def create
@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
 
     enhanced_cart.each do |entry|
       product = entry[:product]
+      ptts "here", product
       quantity = entry[:quantity]
       order.line_items.new(
         product: product,

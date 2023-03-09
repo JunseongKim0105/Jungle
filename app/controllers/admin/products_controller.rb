@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
 
-  before_action :authenticate, only: [:index, :new, :create, :destroy]['ADMIN_PASSWORD']
+  http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
 
   def index
     @products = Product.order(id: :desc).all

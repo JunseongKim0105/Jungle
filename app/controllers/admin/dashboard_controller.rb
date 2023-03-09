@@ -1,7 +1,7 @@
 class Admin::DashboardController < ApplicationController
-  before_action :authenticate, only: [:show]
+  http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
   def show
-    @product_count = Product.count
-    @category_count = product.distinct.count(:category_id)
+    @products = Product.order(id: :desc).all
+    @categories = Category.order(id: :desc).all
   end
 end
