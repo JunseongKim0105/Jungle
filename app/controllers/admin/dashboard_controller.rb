@@ -1,4 +1,7 @@
 class Admin::DashboardController < ApplicationController
+  before_action :authenticate, only: [:show]
   def show
+    @product_count = Product.count
+    @category_count = product.distinct.count(:category_id)
   end
 end
