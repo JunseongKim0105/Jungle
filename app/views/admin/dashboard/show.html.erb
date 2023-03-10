@@ -1,22 +1,33 @@
-<section class="admin-dashboard-show" />
-  <h1>Admin Dashboard</h1>
+<section class="products-show">
+  <header class="page-header">
+    <h1>Admin Dashboard</h1>
+  </header>
 
-  <div class="dashboard"> 
-    <article class="dashboard-item">
-      <div>
-        <h3>Number of Products</h3>
-        <h2><%= @products.length %></h2>
-      </div>
-    </article>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Total</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="/admin/products">Products</a>
+        </td>
+        <td>
+          <h4><%= @product_count %></h4>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Category
+        </td>
+        <td>
+          <h4><%= @category_count %></h4>
+        </td>
+      </tr>
+    </tbody>
 
-    <article class="dashboard-item">
-      <div>
-        <h3>Number of Categories</h3>
-        <h2><%= @categories.length %></h2>
-      </div>
-    </article>
-  </div>
-
-  <%= button_to 'Detail Page', [:admin, :products], method: :get, class: 'btn btn-success detail-btn' %>
-  <% #button_to 'Detail Page', admin_products_path, method: :get, class: 'btn btn-success detail-btn' %>
+  </table>
 </section>
